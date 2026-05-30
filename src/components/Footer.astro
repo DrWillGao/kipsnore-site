@@ -1,0 +1,25 @@
+---
+import { APP_STORE_URL, PRIVACY_URL, SUPPORT_URL, CONTACT_EMAIL } from '../consts';
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/logo/kip-wordmark-pale.svg" alt="Kip" width="76" height="30" />
+      <p>
+        A wellness screening tool for snoring patterns. Kip does not assess or
+        confirm any medical condition.
+      </p>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/snorelab-alternative/">SnoreLab alternative</a>
+      <a href="/blog/">Guides</a>
+      <a href="/about/">About</a>
+      <a href={PRIVACY_URL}>Privacy</a>
+      <a href={SUPPORT_URL}>Support</a>
+      <a href={`mailto:${CONTACT_EMAIL}`}>Contact</a>
+      <a href={APP_STORE_URL}>App Store</a>
+    </div>
+  </div>
+  <div class="footer-fine"><span>© 2026 Kip. Made in the UK.</span></div>
+</footer>

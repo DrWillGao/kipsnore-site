@@ -1,0 +1,15 @@
+---
+import { APP_STORE_URL, CTA_LABEL } from '../consts';
+---
+<header class="site-header" data-elevate-header>
+  <a class="brand" href="/" aria-label="Kip home">
+    <img src="/assets/logo/kip-wordmark-ink.svg" alt="Kip" width="72" height="28" />
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="/snorelab-alternative/">Free SnoreLab alternative</a>
+    <a href="/blog/">Guides</a>
+    <a href="/#how">How it works</a>
+    <a href="/#faq">FAQ</a>
+  </nav>
+  <a class="header-cta" href={APP_STORE_URL} data-cta="header">{CTA_LABEL}</a>
+</header>

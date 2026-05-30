@@ -1,0 +1,126 @@
+---
+import { APP_STORE_URL } from '../consts';
+---
+<section class="quiz" id="quiz" aria-labelledby="quiz-title">
+  <div class="quiz-inner">
+    <p class="kicker" data-reveal>2-minute check</p>
+    <h2 id="quiz-title" data-reveal data-reveal-delay="80">How loud is your snoring, really?</h2>
+    <p class="quiz-lede" data-reveal data-reveal-delay="140">
+      Three quick questions. No sign-up, no diagnosis. Just a sense of whether it's worth tracking tonight.
+    </p>
+
+    <div class="quiz-card" data-reveal data-reveal-delay="200" data-quiz>
+      <div class="quiz-dots" aria-hidden="true">
+        <span class="quiz-dot is-on"></span>
+        <span class="quiz-dot"></span>
+        <span class="quiz-dot"></span>
+      </div>
+
+      <div class="quiz-step" data-step="0">
+        <p class="quiz-q">Has a partner ever told you that you snore?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" type="button" data-score="2">Yes, often</button>
+          <button class="quiz-option" type="button" data-score="1">Sometimes</button>
+          <button class="quiz-option" type="button" data-score="0">Not that I know of</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="1" hidden>
+        <p class="quiz-q">How do you usually feel when you wake up?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" type="button" data-score="2">Exhausted, like I didn't rest</button>
+          <button class="quiz-option" type="button" data-score="1">A bit tired</button>
+          <button class="quiz-option" type="button" data-score="0">Refreshed</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="2" hidden>
+        <p class="quiz-q">How often do you wake during the night?</p>
+        <div class="quiz-options">
+          <button class="quiz-option" type="button" data-score="2">Most nights</button>
+          <button class="quiz-option" type="button" data-score="1">A few times a week</button>
+          <button class="quiz-option" type="button" data-score="0">Rarely</button>
+        </div>
+      </div>
+
+      <div class="quiz-result" data-result hidden>
+        <span class="quiz-result-band" data-band></span>
+        <h3 data-result-title></h3>
+        <p data-result-body></p>
+        <p class="quiz-disclaimer">
+          This isn't a diagnosis. Kip helps you track patterns over time so you can have an
+          informed conversation with your GP.
+        </p>
+        <a class="primary-cta" href={APP_STORE_URL} data-cta="quiz-result">Download Kip free</a>
+        <div><button class="quiz-restart" type="button" data-restart>Start over</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const root = document.querySelector('[data-quiz]');
+    if (root) {
+      const steps = Array.from(root.querySelectorAll('.quiz-step'));
+      const dots = Array.from(root.querySelectorAll('.quiz-dot'));
+      const result = root.querySelector('[data-result]');
+      let current = 0;
+      let score = 0;
+
+      const bands = [
+        {
+          min: 0, max: 1, band: 'Mild for now',
+          title: 'Sounds mild, but a baseline never hurts.',
+          body: "Your answers don't point to much disruption. If a partner still says otherwise, a few free nights of recording settles it for good.",
+        },
+        {
+          min: 2, max: 3, band: 'Worth tracking',
+          title: "There's a pattern worth seeing.",
+          body: 'Snoring and broken sleep often travel together. Recording a few nights shows how loud it really gets, and whether small changes help.',
+        },
+        {
+          min: 4, max: 6, band: 'Worth a closer look',
+          title: 'Worth measuring properly.',
+          body: 'Loud snoring with tiredness and waking is exactly the pattern worth tracking. If it continues, it is worth raising with your GP. Kip gives you the nightly data to bring along.',
+        },
+      ];
+
+      function show(i) {
+        steps.forEach((s, idx) => (s.hidden = idx !== i));
+        result.hidden = true;
+        dots.forEach((d, idx) => d.classList.toggle('is-on', idx <= i));
+      }
+
+      function finish() {
+        steps.forEach((s) => (s.hidden = true));
+        const b = bands.find((x) => score >= x.min && score <= x.max) || bands[1];
+        root.querySelector('[data-band]').textContent = b.band;
+        root.querySelector('[data-result-title]').textContent = b.title;
+        root.querySelector('[data-result-body]').textContent = b.body;
+        result.hidden = false;
+        dots.forEach((d) => d.classList.add('is-on'));
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ name: 'quiz_complete', properties: { score, band: b.band } });
+      }
+
+      steps.forEach((step) => {
+        step.querySelectorAll('.quiz-option').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            score += Number(btn.getAttribute('data-score')) || 0;
+            current += 1;
+            if (current < steps.length) setTimeout(() => show(current), 200);
+            else setTimeout(finish, 200);
+          });
+        });
+      });
+
+      const restart = root.querySelector('[data-restart]');
+      if (restart) {
+        restart.addEventListener('click', () => {
+          current = 0;
+          score = 0;
+          show(0);
+        });
+      }
+    }
+  </script>
+</section>

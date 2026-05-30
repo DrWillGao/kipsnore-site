@@ -1,0 +1,45 @@
+---
+// Focused FAQ accordion. Emits FAQPage JSON-LD whose answer text matches the
+// visible copy exactly (Google requirement). Note: FAQ *rich results* are gone
+// for non-gov/health sites (May 2026) — schema is shipped for machine
+// comprehension + AI-answer parsing, not for accordion snippets.
+interface FaqItem {
+  q: string;
+  a: string; // may contain limited inline HTML (links, <strong>)
+}
+
+interface Props {
+  items: FaqItem[];
+  heading?: string;
+  kicker?: string;
+}
+
+const { items, heading = 'A few things before tonight.', kicker = 'Common questions' } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((i) => ({
+    '@type': 'Question',
+    name: i.q,
+    acceptedAnswer: { '@type': 'Answer', text: i.a },
+  })),
+};
+---
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="faq-inner">
+    <div>
+      <p class="kicker" data-reveal>{kicker}</p>
+      <h2 id="faq-title" data-reveal data-reveal-delay="100">{heading}</h2>
+    </div>
+    <div class="faq-list" data-reveal data-reveal-delay="200">
+      {items.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p set:html={item.a} />
+        </details>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>

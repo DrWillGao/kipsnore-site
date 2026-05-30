@@ -1,0 +1,3 @@
+# Send the default Netlify subdomain to the primary custom domain.
+# (Hashed deploy-preview permalinks are a different host and are unaffected.)
+https://kip-snoring-preview.netlify.app/* https://kipsnore.com/:splat 301!

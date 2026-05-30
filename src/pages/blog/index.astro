@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { APP_STORE_URL } from '../../consts';
+
+// Future-dated posts stay hidden until a rebuild on/after their pubDate (drip).
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.pubDate <= new Date())).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+<Base
+  title="Snoring Guides: Free Apps, Recording Tips and When to See a GP | Kip"
+  description="Honest, practical guides on snoring: how to record it on iPhone, the best free SnoreLab alternatives, and when snoring is worth discussing with your GP."
+  path="/blog/"
+>
+  <section class="blog-hero">
+    <p class="kicker">Guides</p>
+    <h1>Snoring, explained slowly.</h1>
+    <p class="blog-lede">
+      Short, honest reads on recording your snoring, the best free apps, and when it's worth a word
+      with your GP. No clinical claims. No fluff.
+    </p>
+  </section>
+
+  <section class="blog-list">
+    {posts.map((post) => (
+      <article class="blog-card">
+        <p class="blog-card-meta">{post.data.category} · {post.data.readMins} min read</p>
+        <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+        <p>{post.data.description}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="blog-cta">
+    <h2>Track first. Read second.</h2>
+    <p>Three free recording nights. Then change one thing, and prove what works.</p>
+    <a class="primary-cta" href={APP_STORE_URL} data-cta="blog-cta">Get Kip free</a>
+  </section>
+</Base>

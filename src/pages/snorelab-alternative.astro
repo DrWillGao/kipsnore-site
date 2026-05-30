@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import Faq from '../components/Faq.astro';
+import PostCta from '../components/PostCta.astro';
+import { SITE_URL, PRICES_VERIFIED } from '../consts';
+
+const title = 'Free SnoreLab Alternative: Kip vs SnoreLab vs ShutEye (2026)';
+const description =
+  'Looking for a free SnoreLab alternative? Kip records and scores your snoring on iPhone, on-device, ad-free, and free for three nights. An honest comparison of Kip, SnoreLab and ShutEye.';
+const path = '/snorelab-alternative/';
+
+const faqItems = [
+  {
+    q: 'What is the best free alternative to SnoreLab?',
+    a: 'Kip is a strong free SnoreLab alternative for iPhone. It records and scores your snoring on-device, runs no ads, and is free for three nights with no card. Your audio never leaves your phone, which most snore apps cannot say.',
+  },
+  {
+    q: 'Is Kip cheaper than SnoreLab?',
+    a: 'Kip is free to download and free for your first three nights, with no ads. SnoreLab and ShutEye both offer a limited free version with ads, then a paid subscription. Prices change, so check the App Store before you buy.',
+  },
+  {
+    q: 'Is there a snore app that keeps audio on the device?',
+    a: 'Yes. Kip processes and stores everything on your iPhone, with no cloud upload option at all. SnoreLab offers optional cloud backup that can include audio.',
+  },
+  {
+    q: 'Can SnoreLab or Kip detect sleep apnoea?',
+    a: 'No snore app can diagnose sleep apnoea. Only a clinical sleep study can. Both are wellness tools. Kip flags patterns consistent with disrupted sleep so you can talk to your GP.',
+  },
+  {
+    q: 'Does Kip work on Android?',
+    a: 'Not yet. Kip is iPhone only while we get the experience right. SnoreLab and ShutEye are on both iPhone and Android.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    author: { '@type': 'Organization', name: 'Kip', url: `${SITE_URL}/` },
+    publisher: { '@type': 'Organization', name: 'Kip' },
+    mainEntityOfPage: new URL(path, SITE_URL).href,
+  },
+];
+---
+<Base title={`${title} | Kip`} description={description} path={path} schema={schema}>
+  <article class="article">
+    <div class="article-head">
+      <p class="kicker">Comparison</p>
+      <h1>The free, private SnoreLab alternative</h1>
+      <p class="article-byline">
+        <span>By <a href="/about/">the Kip team</a></span>
+        <span class="sep">·</span>
+        <span>Updated {PRICES_VERIFIED}</span>
+        <span class="sep">·</span>
+        <span>4 min read</span>
+      </p>
+    </div>
+
+    <div class="prose">
+      <div class="answer-box">
+        <span class="answer-label">The short version</span>
+        <p>
+          <strong>Kip is the best free SnoreLab alternative if you want privacy and no ads.</strong>
+          It records and scores your snoring on your iPhone, keeps every second of audio on the
+          device, and is free for three nights with no card. SnoreLab is more established and also
+          runs on Android. Kip is a wellness tool, not a medical device.
+        </p>
+      </div>
+
+      <h2>Kip vs SnoreLab vs ShutEye</h2>
+      <ComparisonTable />
+
+      <h2>Why people switch to Kip</h2>
+      <h3>It is free to start, with no ads</h3>
+      <p>
+        You get the full app free for three nights, with no ads and no card. SnoreLab and ShutEye
+        both gate their best features behind a subscription and run ads in the free version.
+      </p>
+      <h3>Your audio never leaves your phone</h3>
+      <p>
+        Kip has no cloud upload path at all. Recordings are analysed and stored on your iPhone.
+        SnoreLab offers an optional cloud backup that can include audio. If you want your recordings
+        to stay on your phone, Kip is the clear choice.
+      </p>
+      <h3>Simpler, cleaner, and accurate</h3>
+      <p>
+        One screen, one score, no upsell clutter and no ads. A dedicated machine-learning model runs
+        on the device and tells real snoring from the cat, the boiler or a passing lorry, so the
+        recording and the score reflect snoring rather than any loud noise. It is the calmest and
+        simplest of the three to use.
+      </p>
+
+      <h2>What SnoreLab still does better</h2>
+      <p>
+        Credit where it is due. SnoreLab runs on Android as well as iPhone, and it has a much longer
+        track record with millions of nights recorded. If you are on Android, it is the safe pick.
+        Kip is iPhone only for now.
+      </p>
+
+      <h2>Which should you choose?</h2>
+      <ul>
+        <li><strong>Want a free, private, ad-free start on iPhone?</strong> Kip.</li>
+        <li><strong>On Android, or want the longest track record?</strong> SnoreLab.</li>
+        <li><strong>Want sleep sounds built in?</strong> ShutEye.</li>
+      </ul>
+      <p>
+        New to this? Start with
+        <a href="/blog/how-to-record-snoring-on-iphone/">how to record your snoring on iPhone</a>,
+        or see the wider roundup of
+        <a href="/blog/best-free-snore-apps-iphone/">the best free snore apps for iPhone</a>.
+      </p>
+
+      <PostCta
+        title="Try the free, private alternative"
+        text="Record and score your snoring on your iPhone. On-device, ad-free, free for three nights."
+        placement="comparison-cta"
+      />
+    </div>
+  </article>
+
+  <Faq items={faqItems} kicker="SnoreLab alternative FAQ" heading="Questions people ask before switching." />
+</Base>

@@ -1,0 +1,172 @@
+---
+import Base from '../layouts/Base.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import Quiz from '../components/Quiz.astro';
+import Faq from '../components/Faq.astro';
+import { APP_STORE_URL, SITE_URL } from '../consts';
+
+const title = 'Kip: Free, Private Snore Tracker for iPhone';
+const description =
+  'Kip is a free, private snore tracker for iPhone, and a cleaner SnoreLab alternative. It records and scores your snoring on-device, so your audio never leaves your phone. Free for three nights, no ads.';
+
+const faqItems = [
+  {
+    q: 'Is Kip free?',
+    a: 'Yes, to start. Kip is free to download and free to use for your first three nights, with no ads and no card needed. After that it is an optional subscription. There is no locked, ad-filled free tier.',
+  },
+  {
+    q: 'Is Kip a free SnoreLab alternative?',
+    a: 'Yes. Kip records and scores your snoring on iPhone like SnoreLab, but your audio never leaves your device and there are no ads. Try the full app free for three nights. <a href="/snorelab-alternative/">See the full comparison</a>.',
+  },
+  {
+    q: 'Does my snoring audio get uploaded anywhere?',
+    a: 'No. Kip analyses your snoring entirely on your iPhone. The audio never leaves the device, and there is no cloud upload option at all. Only your nightly summaries are saved, and you can delete everything in one tap.',
+  },
+  {
+    q: 'Can a snore app detect sleep apnoea?',
+    a: 'No snore app can diagnose sleep apnoea. Only a clinical sleep study can. Kip is a wellness tool that flags patterns consistent with disrupted sleep, so you can talk to your GP with real information.',
+  },
+  {
+    q: 'Will Kip wake me up?',
+    a: 'No. Recording is passive. The screen goes dark and there are no overnight notifications.',
+  },
+  {
+    q: 'Do I need an Apple Watch?',
+    a: 'No. Kip uses your iPhone microphone. Plug the phone in, place it by your bed, and tap start.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Kip Snore Tracker',
+    applicationCategory: 'HealthApplication',
+    operatingSystem: 'iOS',
+    url: `${SITE_URL}/`,
+    sameAs: APP_STORE_URL,
+    description:
+      'A free, private snore tracker for iPhone. Records and scores snoring on-device. Free three-night trial.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'GBP',
+      description: 'Free to download with a three-night trial, then an optional subscription.',
+    },
+  },
+];
+---
+<Base title={title} description={description} path="/" schema={schema}>
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title" data-reveal>Understand your<br />snoring. Free<br />and private.</h1>
+    <p class="hero-copy" data-reveal data-reveal-delay="100">
+      Kip records and scores your snoring overnight on your iPhone, and your audio never leaves your
+      device. Free for three nights, with no ads and no card.
+    </p>
+    <div class="hero-actions" data-reveal data-reveal-delay="200">
+      <a class="primary-cta" href={APP_STORE_URL} data-cta="hero">Get Kip free</a>
+      <span class="hero-note">Free for three nights. No ads, no card.</span>
+    </div>
+  </section>
+
+  <!-- Phone moment -->
+  <section class="phone-stage" aria-label="Kip on iPhone">
+    <div class="phone-stage-inner">
+      <div class="phone-stage-frame">
+        <img src="/assets/screenshots/summary.jpg" alt="Kip morning summary showing a snore score and the night's loudest minutes" class="phone-screen" width="280" height="606" />
+      </div>
+    </div>
+    <p class="phone-caption" data-reveal data-reveal-delay="150">What you wake up to after the first free night.</p>
+  </section>
+
+  <!-- How it works -->
+  <section class="how" id="how" aria-labelledby="how-title">
+    <div class="how-inner">
+      <p class="kicker" data-reveal>How it works</p>
+      <h2 id="how-title" data-reveal data-reveal-delay="80">Three taps tonight. A clear answer tomorrow.</h2>
+      <div class="how-steps">
+        <div class="how-step" data-reveal>
+          <p class="prose-num">01</p>
+          <h3>Put your phone by the bed.</h3>
+          <p>Plug it in and tap start. No wearable, no setup.</p>
+        </div>
+        <div class="how-step" data-reveal data-reveal-delay="100">
+          <p class="prose-num">02</p>
+          <h3>Kip listens and scores overnight.</h3>
+          <p>On-device machine learning separates real snoring from coughs, the cat and traffic, then scores how loud it gets.</p>
+        </div>
+        <div class="how-step" data-reveal data-reveal-delay="200">
+          <p class="prose-num">03</p>
+          <h3>Wake to a calm summary.</h3>
+          <p>Your snore score, your loudest minutes, and how the week is trending.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz (moved high for engagement) -->
+  <Quiz />
+
+  <!-- Features: reports + trends -->
+  <section class="features" id="features" aria-labelledby="features-title">
+    <div class="features-inner">
+      <p class="kicker" data-reveal>What you get</p>
+      <h2 id="features-title" data-reveal data-reveal-delay="80">More than a number.</h2>
+      <div class="how-steps">
+        <div class="how-step" data-reveal>
+          <h3>A morning report.</h3>
+          <p>A clear summary of the night: your snore score, your loudest minutes, and how long you snored. Generate a report to keep, or to take to your GP.</p>
+        </div>
+        <div class="how-step" data-reveal data-reveal-delay="100">
+          <h3>Trends over time.</h3>
+          <p>Watch your score across the week and the month. One bad night stops looking like a disaster, and a real change stands out clearly.</p>
+        </div>
+        <div class="how-step" data-reveal data-reveal-delay="200">
+          <h3>See what actually works.</h3>
+          <p>Record a baseline, change one thing like side sleeping or skipping a late drink, and let the numbers tell you whether it helped.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy declaration (the wedge) -->
+  <section class="declaration" aria-labelledby="declaration-title">
+    <p class="declaration-eyebrow" data-reveal>Private by design</p>
+    <h2 id="declaration-title" data-reveal data-reveal-delay="100">Your audio<br />never leaves<br />your phone.</h2>
+    <p class="declaration-body" data-reveal data-reveal-delay="200">
+      Snoring is classified on your device, using the same kind of machine learning that powers your
+      iPhone camera. Nothing is streamed. Nothing is uploaded. There is no cloud option to switch on.
+    </p>
+  </section>
+
+  <!-- Comparison teaser -->
+  <section class="compare" aria-labelledby="compare-title">
+    <div class="compare-inner">
+      <p class="kicker" data-reveal>Kip vs SnoreLab vs ShutEye</p>
+      <h2 id="compare-title" data-reveal data-reveal-delay="80">A free, private alternative to SnoreLab.</h2>
+      <p data-reveal data-reveal-delay="140">
+        SnoreLab and ShutEye both run ads in their free version and connect to the cloud. Kip is free
+        to try in full, on-device, and ad-free.
+      </p>
+      <div data-reveal data-reveal-delay="200">
+        <ComparisonTable />
+      </div>
+      <p class="compare-link" data-reveal data-reveal-delay="240">
+        <a href="/snorelab-alternative/">Read the full SnoreLab alternative comparison</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <Faq items={faqItems} heading="A few things before tonight." />
+
+  <!-- Closing CTA -->
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="closing-inner">
+      <h2 id="closing-title" data-reveal>Start tracking<br />tonight. Free.</h2>
+      <p data-reveal data-reveal-delay="100">Three free nights to find your baseline. No ads, no card.</p>
+      <a class="primary-cta closing-cta" href={APP_STORE_URL} data-cta="final" data-reveal data-reveal-delay="200">Get Kip on the App Store</a>
+    </div>
+  </section>
+</Base>

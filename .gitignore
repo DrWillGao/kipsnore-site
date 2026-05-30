@@ -1,0 +1,12 @@
+# Astro / build artifacts
+dist/
+.astro/
+node_modules/
+
+# Netlify CLI local state
+.netlify/
+
+# Secrets / local env
+.env
+.env.*
+*.local

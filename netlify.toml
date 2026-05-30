@@ -1,0 +1,16 @@
+# Netlify build for the Kip marketing site (Astro static output).
+# NOTE: the site's Netlify dashboard currently has UI-set build overrides with a
+# doubled publish path (apps/snoring-site/apps/snoring-site/dist). Those UI values
+# take precedence over this file: clear them (or set base = "apps/snoring-site")
+# so this config is honoured. Verify on first deploy.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Scheduled rebuild keeps the drip schedule running: a daily build publishes any
+# blog post whose future pubDate has now passed. Needs a BUILD_HOOK_URL env var.
+[functions]
+  directory = "netlify/functions"

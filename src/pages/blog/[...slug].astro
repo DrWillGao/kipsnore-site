@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostCta from '../../components/PostCta.astro';
+import { SITE_URL } from '../../consts';
+
+export async function getStaticPaths() {
+  // Hide drafts AND future-dated posts. A future pubDate is how the drip
+  // schedule works: a post stays unbuilt until a rebuild happens on/after its
+  // pubDate (see netlify/functions/scheduled-rebuild.mjs for the daily rebuild).
+  const posts = await getCollection('blog', ({ data }) => !data.draft && data.pubDate <= new Date());
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, updatedDate, category, readMins } = post.data;
+const path = `/blog/${post.id}/`;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: title,
+    description,
+    datePublished: pubDate.toISOString(),
+    dateModified: (updatedDate ?? pubDate).toISOString(),
+    author: { '@type': 'Organization', name: 'Kip', url: `${SITE_URL}/` },
+    publisher: { '@type': 'Organization', name: 'Kip' },
+    mainEntityOfPage: new URL(path, SITE_URL).href,
+  },
+];
+---
+<Base title={`${title} | Kip`} description={description} path={path} schema={schema}>
+  <article class="article">
+    <div class="article-head">
+      <p class="kicker">{category}</p>
+      <h1>{title}</h1>
+      <p class="article-byline">
+        <span>By <a href="/about/">the Kip team</a></span>
+        <span class="sep">·</span>
+        <span>Updated {fmt(updatedDate ?? pubDate)}</span>
+        <span class="sep">·</span>
+        <span>{readMins} min read</span>
+      </p>
+    </div>
+    <div class="prose">
+      <Content />
+      <PostCta />
+    </div>
+  </article>
+</Base>

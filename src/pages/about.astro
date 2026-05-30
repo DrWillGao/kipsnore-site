@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCta from '../components/PostCta.astro';
+import { SITE_URL, CONTACT_EMAIL } from '../consts';
+
+const title = 'About Kip: our mission and how we test';
+const description =
+  'Kip is a private, on-device snore tracker for iPhone. Our mission is to help you understand and quiet your snoring, wake up more refreshed, and help your partner sleep better.';
+const path = '/about/';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: title,
+    description,
+    url: new URL(path, SITE_URL).href,
+    publisher: { '@type': 'Organization', name: 'Kip', url: `${SITE_URL}/` },
+  },
+];
+---
+<Base title={`${title} | Kip`} description={description} path={path} schema={schema}>
+  <article class="article">
+    <div class="article-head">
+      <p class="kicker">About</p>
+      <h1>What Kip is for.</h1>
+    </div>
+
+    <div class="prose">
+      <p>
+        Kip has a simple mission: help you understand your snoring, work out what quiets it, and help
+        you and your partner wake up more refreshed. Snoring is one of the few health habits you can
+        actually measure at home, and seeing it clearly is the first step to a quieter night.
+      </p>
+
+      <h2>Why on-device, always</h2>
+      <p>
+        Recording your bedroom overnight is personal. So Kip is built so your audio never leaves your
+        phone. There is no cloud upload option at all. Snoring is detected and scored on the device
+        itself, using the same kind of machine learning that runs your iPhone camera. It is the first
+        principle Kip will not compromise, even though it makes some features harder to build.
+      </p>
+
+      <h2>How Kip helps you sleep better</h2>
+      <p>
+        Kip records and scores your snoring, then shows a calm morning summary and a trend over time.
+        That lets you test what actually helps, like sleeping on your side, skipping a late drink, or
+        trying a nasal strip, and see whether it moved the numbers. Quieter nights are better for you
+        and for whoever shares your bed.
+      </p>
+
+      <h2>How Kip compares itself to other apps</h2>
+      <p>
+        Before writing about apps like <a href="/snorelab-alternative/">SnoreLab and ShutEye</a>, Kip
+        installs them, pays for them, and records real nights on an iPhone in the UK. Where a rival
+        does something better, like wider platform support or a longer track record, we say so.
+        Prices and free-tier limits are checked against the live App Store and dated on the page,
+        because they change often.
+      </p>
+
+      <h2>What Kip is, and isn't</h2>
+      <p>
+        Kip is a wellness and screening tool. It can show you patterns in your snoring over time and
+        help you have a better-informed conversation with your GP. It is <strong>not</strong> a
+        medical device, and it cannot diagnose or treat sleep apnoea or any other condition. Only a
+        clinical sleep study can do that. If your results worry you, please speak to your GP.
+      </p>
+
+      <h2>Get in touch</h2>
+      <p>
+        Found something wrong, or have a question? Email
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Every message is read.
+      </p>
+
+      <PostCta />
+    </div>
+  </article>
+</Base>

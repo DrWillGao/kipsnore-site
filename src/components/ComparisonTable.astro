@@ -1,0 +1,42 @@
+---
+import { PRICES_VERIFIED } from '../consts';
+
+// Static HTML table (NOT JS-generated) so Google + AI answers can extract it.
+// Only rows where Kip has a genuine, defensible advantage are shown.
+// Verified against live App Store listings (see research notes):
+// - SnoreLab/ShutEye both ship a *limited* free version with ads.
+// - SnoreLab cloud audio backup is OPTIONAL, not default. Do not imply otherwise.
+const rows = [
+  { label: 'Cost to start', kip: 'Free for 3 nights. No ads, no card.', snorelab: 'Limited free version, with ads', shuteye: 'Limited free version, with ads', kipTick: true },
+  { label: 'Audio stays on your phone', kip: 'Yes. No cloud upload option.', snorelab: 'Optional cloud backup', shuteye: 'Cloud connected', kipTick: true },
+  { label: 'Ads', kip: 'None', snorelab: 'In the free version', shuteye: 'In the free version', kipTick: true },
+  { label: 'Account needed', kip: 'No', snorelab: 'Only for cloud backup', shuteye: 'Yes', kipTick: true },
+];
+---
+<div class="ctable-wrap">
+  <table class="ctable">
+    <caption>Kip vs SnoreLab vs ShutEye, snore tracking on iPhone</caption>
+    <thead>
+      <tr>
+        <th scope="col">Feature</th>
+        <th scope="col" class="is-kip-col">Kip</th>
+        <th scope="col">SnoreLab</th>
+        <th scope="col">ShutEye</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>
+          <th scope="row">{r.label}</th>
+          <td class="is-kip-col">{r.kipTick && <span class="tick">✓ </span>}{r.kip}</td>
+          <td>{r.snorelab}</td>
+          <td>{r.shuteye}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<p class="ctable-note">
+  Correct as of {PRICES_VERIFIED}. Check the App Store, as plans change. SnoreLab's cloud audio
+  backup is optional, not on by default.
+</p>

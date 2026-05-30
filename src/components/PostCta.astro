@@ -1,0 +1,22 @@
+---
+import { APP_STORE_URL } from '../consts';
+
+interface Props {
+  title?: string;
+  text?: string;
+  placement?: string;
+  label?: string;
+}
+
+const {
+  title = 'See your own snore score tonight',
+  text = 'Kip records and scores your snoring on your iPhone. Free for three nights, with no ads, no card, and nothing uploaded.',
+  placement = 'post',
+  label = 'Download Kip free',
+} = Astro.props;
+---
+<aside class="post-cta">
+  <h2>{title}</h2>
+  <p>{text}</p>
+  <a class="primary-cta" href={APP_STORE_URL} data-cta={placement}>{label}</a>
+</aside>
