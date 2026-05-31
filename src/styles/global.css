@@ -732,6 +732,9 @@ table.ctable tr:last-child th, table.ctable tr:last-child td { border-bottom: no
 .post-hero { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; object-position: center 30%; border-radius: 18px; margin-top: 32px; background: var(--bg-warm); }
 .post-hero-fallback { display: flex; align-items: center; justify-content: center; background: linear-gradient(120deg, #1e3a5f 0%, #2a2740 55%, #3d2f1e 100%); }
 .post-hero-fallback img { width: 96px; height: auto; opacity: 0.92; }
+.post-hero-branded { position: relative; display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.post-hero-branded::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: rgba(18, 22, 32, 0.42); }
+.post-hero-mark { position: relative; z-index: 1; width: 120px; height: auto; opacity: 0.95; filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.45)); }
 .post-body { margin-top: 8px; }
 .post-toc { margin: 28px 0 4px; padding: 20px 22px; border: 1px solid var(--rule); border-radius: 16px; background: var(--bg-warm); }
 .post-toc-title { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 14px; }

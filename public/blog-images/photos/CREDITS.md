@@ -15,3 +15,5 @@
 | stop-snoring-tonight | pexels-kampus-7477700 |
 | sleep-apnoea-and-mens-health | pexels-mikhail-nilov-6981190 |
 | snoring-and-age | pexels-parimal-jain-221712424-19532500 |
+| how-common-is-snoring (branded nature) | pexels-freestocks-194010 |
+| snoring-and-age (replaced) | pexels-kampus-6922188 |

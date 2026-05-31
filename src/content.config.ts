@@ -15,6 +15,11 @@ const blog = defineCollection({
     // Optional hero image (path under /blog-images/photos/...). Falls back to a
     // branded gradient banner when absent.
     heroImage: z.string().optional(),
+    // CSS object-position for the hero crop, e.g. "center 70%" (default center 30%).
+    heroPosition: z.string().optional(),
+    // When true, the hero image is treated as a branded backdrop: darkened with
+    // the Kip wordmark centred on top (used for calm nature scenes).
+    heroLogo: z.boolean().optional(),
   }),
 });
 

@@ -5,6 +5,8 @@ pubDate: 2026-09-12
 updatedDate: 2026-09-12
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/how-common-is-snoring.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>
