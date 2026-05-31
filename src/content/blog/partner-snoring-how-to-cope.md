@@ -5,6 +5,7 @@ pubDate: 2026-09-06
 updatedDate: 2026-09-06
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/partner-snoring-how-to-cope.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

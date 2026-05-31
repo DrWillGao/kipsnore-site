@@ -5,6 +5,7 @@ pubDate: 2026-08-31
 updatedDate: 2026-08-31
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/snoring-in-men.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

@@ -5,6 +5,7 @@ pubDate: 2026-09-03
 updatedDate: 2026-09-03
 category: "Health"
 readMins: 5
+heroImage: "/blog-images/photos/sleep-apnoea-and-mens-health.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

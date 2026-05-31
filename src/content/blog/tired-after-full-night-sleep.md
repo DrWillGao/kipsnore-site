@@ -5,6 +5,7 @@ pubDate: 2026-07-29
 updatedDate: 2026-07-29
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/tired-after-full-night-sleep.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

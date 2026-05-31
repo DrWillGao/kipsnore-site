@@ -5,6 +5,7 @@ pubDate: 2026-06-02
 updatedDate: 2026-06-02
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/best-sleeping-position-to-stop-snoring.jpg"
 ---
 
 <div class="answer-box">

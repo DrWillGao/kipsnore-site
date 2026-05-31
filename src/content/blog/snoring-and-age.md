@@ -5,6 +5,7 @@ pubDate: 2026-09-09
 updatedDate: 2026-09-09
 category: "Health"
 readMins: 3
+heroImage: "/blog-images/photos/snoring-and-age.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

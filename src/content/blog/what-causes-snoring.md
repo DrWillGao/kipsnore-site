@@ -5,6 +5,7 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Health"
 readMins: 8
+heroImage: "/blog-images/photos/what-causes-snoring.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

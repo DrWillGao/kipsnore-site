@@ -5,6 +5,7 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Guide"
 readMins: 7
+heroImage: "/blog-images/photos/how-to-track-snoring.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

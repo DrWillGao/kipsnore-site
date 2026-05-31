@@ -5,6 +5,7 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Health"
 readMins: 9
+heroImage: "/blog-images/photos/sleep-apnoea-symptoms.jpg"
 ---
 
 <div class="answer-box">

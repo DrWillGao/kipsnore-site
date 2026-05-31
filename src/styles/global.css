@@ -729,7 +729,7 @@ table.ctable tr:last-child th, table.ctable tr:last-child td { border-bottom: no
 .post-byline-text { display: flex; flex-direction: column; line-height: 1.35; }
 .post-byline-name { font-size: 15px; font-weight: 600; color: var(--ink); }
 .post-byline-sub { font-size: 13px; color: var(--ink-mute); }
-.post-hero { display: block; width: 100%; aspect-ratio: 16 / 5; object-fit: cover; border-radius: 18px; margin-top: 32px; background: var(--bg-warm); }
+.post-hero { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; object-position: center 30%; border-radius: 18px; margin-top: 32px; background: var(--bg-warm); }
 .post-hero-fallback { display: flex; align-items: center; justify-content: center; background: linear-gradient(120deg, #1e3a5f 0%, #2a2740 55%, #3d2f1e 100%); }
 .post-hero-fallback img { width: 96px; height: auto; opacity: 0.92; }
 .post-body { margin-top: 8px; }

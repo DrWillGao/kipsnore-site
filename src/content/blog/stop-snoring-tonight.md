@@ -5,6 +5,7 @@ pubDate: 2026-06-08
 updatedDate: 2026-06-08
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/stop-snoring-tonight.jpg"
 ---
 
 <div class="answer-box">

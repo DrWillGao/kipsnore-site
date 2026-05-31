@@ -5,6 +5,7 @@ pubDate: 2026-08-13
 updatedDate: 2026-08-13
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/when-to-see-gp-about-snoring.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

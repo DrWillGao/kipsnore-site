@@ -5,6 +5,7 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Guide"
 readMins: 8
+heroImage: "/blog-images/photos/how-to-stop-snoring.jpg"
 ---
 
 <div class="answer-box">

@@ -5,6 +5,7 @@ pubDate: 2026-07-08
 updatedDate: 2026-07-08
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/snoring-and-weight.jpg"
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>
