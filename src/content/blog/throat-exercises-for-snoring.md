@@ -5,6 +5,8 @@ pubDate: 2026-06-11
 updatedDate: 2026-06-11
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/throat-exercises-for-snoring.jpg"
+heroLogo: true
 ---
 
 <div class="answer-box">

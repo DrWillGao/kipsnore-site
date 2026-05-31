@@ -5,6 +5,8 @@ pubDate: 2026-07-11
 updatedDate: 2026-07-11
 category: "Health"
 readMins: 3
+heroImage: "/blog-images/photos/smoking-and-snoring.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

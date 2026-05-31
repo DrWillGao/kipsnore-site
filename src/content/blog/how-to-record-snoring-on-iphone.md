@@ -5,6 +5,8 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Guide"
 readMins: 5
+heroImage: "/blog-images/photos/how-to-record-snoring-on-iphone.jpg"
+heroLogo: true
 ---
 
 <div class="answer-box">

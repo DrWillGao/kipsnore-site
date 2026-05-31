@@ -5,6 +5,8 @@ pubDate: 2026-07-20
 updatedDate: 2026-07-20
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/snoring-and-high-blood-pressure.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

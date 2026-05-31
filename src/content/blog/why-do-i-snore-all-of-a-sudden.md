@@ -5,6 +5,8 @@ pubDate: 2026-06-29
 updatedDate: 2026-06-29
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/why-do-i-snore-all-of-a-sudden.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

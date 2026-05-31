@@ -5,6 +5,8 @@ pubDate: 2026-06-17
 updatedDate: 2026-06-17
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/anti-snoring-mouthpieces-mad-guide.jpg"
+heroLogo: true
 ---
 
 <div class="answer-box">

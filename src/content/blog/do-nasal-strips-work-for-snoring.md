@@ -5,6 +5,8 @@ pubDate: 2026-06-14
 updatedDate: 2026-06-14
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/do-nasal-strips-work-for-snoring.jpg"
+heroLogo: true
 ---
 
 <div class="answer-box">

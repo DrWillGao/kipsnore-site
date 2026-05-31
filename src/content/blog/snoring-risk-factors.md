@@ -5,6 +5,8 @@ pubDate: 2026-07-14
 updatedDate: 2026-07-14
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/snoring-risk-factors.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">Key takeaways</span>

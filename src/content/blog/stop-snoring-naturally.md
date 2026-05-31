@@ -5,6 +5,8 @@ pubDate: 2026-06-05
 updatedDate: 2026-06-05
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/stop-snoring-naturally.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

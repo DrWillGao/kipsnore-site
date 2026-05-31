@@ -5,6 +5,8 @@ pubDate: 2026-07-02
 updatedDate: 2026-07-02
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/blocked-nose-snoring.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

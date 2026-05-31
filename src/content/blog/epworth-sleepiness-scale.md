@@ -5,6 +5,8 @@ pubDate: 2026-08-04
 updatedDate: 2026-08-04
 category: "Health"
 readMins: 3
+heroImage: "/blog-images/photos/epworth-sleepiness-scale.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

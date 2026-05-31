@@ -5,6 +5,8 @@ pubDate: 2026-06-20
 updatedDate: 2026-06-20
 category: "Guide"
 readMins: 3
+heroImage: "/blog-images/photos/best-anti-snore-pillow.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

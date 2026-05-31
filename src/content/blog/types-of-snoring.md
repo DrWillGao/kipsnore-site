@@ -5,6 +5,8 @@ pubDate: 2026-08-22
 updatedDate: 2026-08-22
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/types-of-snoring.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

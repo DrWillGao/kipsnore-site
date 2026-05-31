@@ -5,6 +5,8 @@ pubDate: 2026-06-26
 updatedDate: 2026-06-26
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/cpap-explained.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

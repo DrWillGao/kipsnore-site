@@ -5,6 +5,8 @@ pubDate: 2026-08-07
 updatedDate: 2026-08-07
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/sleep-apnoea-test-at-home.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

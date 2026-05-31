@@ -5,6 +5,8 @@ pubDate: 2026-06-23
 updatedDate: 2026-06-23
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/positional-therapy-for-snoring.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

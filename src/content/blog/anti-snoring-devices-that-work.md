@@ -5,6 +5,8 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Guide"
 readMins: 8
+heroImage: "/blog-images/photos/anti-snoring-devices-that-work.jpg"
+heroLogo: true
 ---
 
 <div class="answer-box">

@@ -5,6 +5,8 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Health"
 readMins: 6
+heroImage: "/blog-images/photos/snoring-vs-sleep-apnoea.jpg"
+heroLogo: true
 ---
 
 <div class="answer-box">

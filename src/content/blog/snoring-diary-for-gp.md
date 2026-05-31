@@ -5,6 +5,8 @@ pubDate: 2026-08-16
 updatedDate: 2026-08-16
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/snoring-diary-for-gp.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

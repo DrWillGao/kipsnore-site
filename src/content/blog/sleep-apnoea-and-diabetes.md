@@ -5,6 +5,8 @@ pubDate: 2026-07-26
 updatedDate: 2026-07-26
 category: "Health"
 readMins: 3
+heroImage: "/blog-images/photos/sleep-apnoea-and-diabetes.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

@@ -5,6 +5,8 @@ pubDate: 2026-05-30
 updatedDate: 2026-05-30
 category: "Comparison"
 readMins: 7
+heroImage: "/blog-images/photos/best-free-snore-apps-iphone.jpg"
+heroLogo: true
 ---
 
 <div class="answer-box">

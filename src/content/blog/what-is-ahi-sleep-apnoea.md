@@ -5,6 +5,8 @@ pubDate: 2026-08-10
 updatedDate: 2026-08-10
 category: "Health"
 readMins: 4
+heroImage: "/blog-images/photos/what-is-ahi-sleep-apnoea.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>

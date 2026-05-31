@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+// Internal one-page review of every blog hero. Noindex.
+const posts = (await getCollection('blog')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+<Base
+  title="Hero review | Kip"
+  description="Internal review of every Kip blog hero image."
+  path="/heroes/"
+  noindex={true}
+>
+  <section class="library">
+    <p class="kicker">Internal</p>
+    <h1>Hero review</h1>
+    <p class="library-lede">Every blog post hero in one place ({posts.length} posts). People photos, branded nature scenes, and any remaining gradient fallbacks.</p>
+    <div class="hero-review-grid">
+      {posts.map((p) => {
+        const { heroImage, heroLogo, heroPosition, title } = p.data;
+        return (
+          <figure class="hr-item">
+            {heroImage && heroLogo ? (
+              <div class="hr-hero hr-branded" style={`background-image: url('${heroImage}')`}>
+                <img src="/assets/logo/kip-wordmark-pale.svg" alt="" width="82" height="32" />
+              </div>
+            ) : heroImage ? (
+              <div class="hr-hero" style={`background-image: url('${heroImage}'); background-position: ${heroPosition || 'center 30%'}`}></div>
+            ) : (
+              <div class="hr-hero hr-fallback">
+                <img src="/assets/logo/kip-wordmark-pale.svg" alt="" width="64" height="25" />
+              </div>
+            )}
+            <figcaption>
+              <strong>{title}</strong>
+              <span>/blog/{p.id}/</span>
+            </figcaption>
+          </figure>
+        );
+      })}
+    </div>
+  </section>
+</Base>

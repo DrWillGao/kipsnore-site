@@ -5,6 +5,8 @@ pubDate: 2026-08-19
 updatedDate: 2026-08-19
 category: "Guide"
 readMins: 4
+heroImage: "/blog-images/photos/measure-snoring-decibels.jpg"
+heroLogo: true
 ---
 <div class="answer-box">
   <span class="answer-label">The short answer</span>
