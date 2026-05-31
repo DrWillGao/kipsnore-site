@@ -33,6 +33,10 @@ const ogImageUrl = new URL(ogImage, SITE_URL).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f5f1e8" />
+    <!-- Mark JS available before paint so reveal-on-scroll only hides content when
+         it can also un-hide it (no-JS / script error => content stays visible). -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -91,6 +95,8 @@ const ogImageUrl = new URL(ogImage, SITE_URL).href;
           { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
         );
         targets.forEach((t) => io.observe(t));
+        // Safety net: never leave content hidden if the observer misses an element.
+        window.setTimeout(() => targets.forEach((t) => t.classList.add('is-revealed')), 1600);
       }
 
       document.querySelectorAll('[data-cta]').forEach((el) => {

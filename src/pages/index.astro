@@ -59,25 +59,27 @@ const schema = [
 <Base title={title} description={description} path="/" schema={schema}>
   <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title" data-reveal>Understand your<br />snoring. Free<br />and private.</h1>
-    <p class="hero-copy" data-reveal data-reveal-delay="100">
-      Kip records and scores your snoring overnight on your iPhone, and your audio never leaves your
-      device. Free for three nights, with no ads and no card.
-    </p>
-    <div class="hero-actions" data-reveal data-reveal-delay="200">
-      <a class="primary-cta" href={APP_STORE_URL} data-cta="hero">Get Kip free</a>
-      <span class="hero-note">Free for three nights. No ads, no card.</span>
-    </div>
-  </section>
-
-  <!-- Phone moment -->
-  <section class="phone-stage" aria-label="Kip on iPhone">
-    <div class="phone-stage-inner">
-      <div class="phone-stage-frame">
-        <img src="/assets/screenshots/summary.jpg" alt="Kip morning summary showing a snore score and the night's loudest minutes" class="phone-screen" width="280" height="606" />
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 id="hero-title" data-reveal>Understand your snoring. Free and private.</h1>
+        <p class="hero-copy" data-reveal data-reveal-delay="100">
+          Kip records and scores your snoring overnight on your iPhone, and your audio never leaves
+          your device. Free for three nights, with no ads and no card.
+        </p>
+        <div class="hero-actions" data-reveal data-reveal-delay="200">
+          <a class="primary-cta" href={APP_STORE_URL} data-cta="hero">Get Kip free</a>
+          <span class="hero-note">Free for three nights. No ads, no card.</span>
+        </div>
+      </div>
+      <div class="hero-visual" data-reveal data-reveal-delay="150" aria-label="Kip on iPhone">
+        <div class="hero-stage">
+          <div class="phone-stage-frame">
+            <img src="/assets/screenshots/summary.jpg" alt="Kip morning summary showing a snore score and the night's loudest minutes" class="phone-screen" width="280" height="606" />
+          </div>
+        </div>
+        <p class="phone-caption">What you wake up to after the first free night.</p>
       </div>
     </div>
-    <p class="phone-caption" data-reveal data-reveal-delay="150">What you wake up to after the first free night.</p>
   </section>
 
   <!-- How it works -->
