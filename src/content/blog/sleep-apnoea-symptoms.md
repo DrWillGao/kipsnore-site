@@ -51,6 +51,35 @@ Clinicians grade sleep apnoea using the apnoea-hypopnoea index, or AHI: the numb
 - **Moderate:** AHI 15 to 30 events per hour
 - **Severe:** AHI over 30 events per hour
 
+<figure class="post-figure">
+  <svg viewBox="0 0 600 150" role="img" aria-label="Sleep apnoea severity by AHI: normal under 5 events per hour, mild 5 to 14, moderate 15 to 30, and severe over 30." xmlns="http://www.w3.org/2000/svg">
+    <title>Sleep apnoea severity grades by AHI</title>
+    <text x="40" y="26" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="600" fill="#1a1814">Sleep apnoea severity by AHI</text>
+    <defs><clipPath id="ahiClip"><rect x="40" y="46" width="520" height="48" rx="8"/></clipPath></defs>
+    <g clip-path="url(#ahiClip)">
+      <rect x="40" y="46" width="65" height="48" fill="#3f7a5e"/>
+      <rect x="105" y="46" width="130" height="48" fill="#c9a23a"/>
+      <rect x="235" y="46" width="195" height="48" fill="#c97a3a"/>
+      <rect x="430" y="46" width="130" height="48" fill="#b4452f"/>
+    </g>
+    <g font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" fill="#ffffff" font-weight="600" text-anchor="middle">
+      <text x="72" y="75" font-size="11">Normal</text>
+      <text x="170" y="75" font-size="14">Mild</text>
+      <text x="332" y="75" font-size="14">Moderate</text>
+      <text x="495" y="75" font-size="14">Severe</text>
+    </g>
+    <g font-family="-apple-system, BlinkMacSystemFont, system-ui, sans-serif" fill="#756e63" font-size="12">
+      <text x="40" y="114" text-anchor="middle">0</text>
+      <text x="105" y="114" text-anchor="middle">5</text>
+      <text x="235" y="114" text-anchor="middle">15</text>
+      <text x="430" y="114" text-anchor="middle">30</text>
+      <text x="560" y="114" text-anchor="end">30+</text>
+      <text x="300" y="138" text-anchor="middle">AHI = breathing events per hour of sleep</text>
+    </g>
+  </svg>
+  <figcaption>Sleep apnoea severity bands by AHI (apnoea-hypopnoea index). Source: NHS and the American Academy of Sleep Medicine. AHI can only be measured by a clinical sleep study.</figcaption>
+</figure>
+
 Here is the crucial bit. AHI comes from a multi-channel sleep study, not from a phone, a smartwatch, or any consumer app. No app can produce your AHI, and no app can tell you which band you fall into. If a product implies it can, be sceptical. Severity grading is a doctor's job, done with proper equipment.
 
 [Kip](/) sits firmly on the wellness side of that line. It records and scores your snoring on your iPhone, tracking loudness, frequency and how those change over the weeks. It does not measure breathing pauses, it does not measure blood oxygen, and it does not assign an AHI or diagnose anything. What it gives you is a clear, honest record of your snoring to take into a GP appointment. If you want to understand the index itself, our explainer on [what AHI means](/blog/what-is-ahi-sleep-apnoea/) goes deeper.

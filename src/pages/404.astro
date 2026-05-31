@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Page not found | Kip"
+  description="That page could not be found. Head back to the homepage or browse the snoring guides."
+  path="/404/"
+  noindex={true}
+>
+  <section class="closing">
+    <div class="closing-inner">
+      <p class="kicker">404</p>
+      <h2>That page drifted off.</h2>
+      <p>We could not find what you were after. It may have moved, or it is not published yet.</p>
+      <a class="primary-cta" href="/">Back to home</a>
+      <p><a href="/blog/">Browse the snoring guides</a></p>
+    </div>
+  </section>
+</Base>

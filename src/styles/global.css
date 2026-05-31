@@ -662,6 +662,25 @@ table.ctable tr:last-child th, table.ctable tr:last-child td { border-bottom: no
 .prose tbody td { border-bottom: 1px solid var(--rule); padding: 12px 14px; color: var(--ink-soft); vertical-align: top; }
 .prose tbody tr td:first-child { color: var(--ink); font-weight: 600; }
 
+/* Original, hand-built data diagrams embedded in posts (figure + cited caption).
+   Not AI-generated, fully owned; captions attribute the journal/source data. */
+.prose figure.post-figure { margin: 40px 0; }
+.prose figure.post-figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: var(--bg-warm);
+  padding: 22px 20px;
+}
+.prose figure.post-figure figcaption {
+  margin: 12px 2px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+
 /* Answer-first "key takeaways / quick verdict" box (snippet bait) */
 .answer-box {
   border: 1px solid var(--rule);

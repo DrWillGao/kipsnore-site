@@ -1,0 +1,36 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  # Deploy on every push to main (content/code changes go live automatically).
+  push:
+    branches: [main]
+  # Daily drip: rebuild so any blog post whose future pubDate has now passed
+  # gets published. The new-post cadence (every ~3 days) is set by each post's
+  # pubDate in src/content/blog, not here. 06:10 UTC ~= 07:10 UK in summer.
+  schedule:
+    - cron: '10 6 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=kipsnore --branch=main
