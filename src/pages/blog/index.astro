@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import { APP_STORE_URL } from '../../consts';
 
 // Future-dated posts stay hidden until a rebuild on/after their pubDate (drip).
-const posts = (await getCollection('blog', ({ data }) => !data.draft && data.pubDate <= new Date())).sort(
+const previewAll = process.env.PREVIEW_ALL === 'true';
+const posts = (await getCollection('blog', ({ data }) => !data.draft && (previewAll || data.pubDate <= new Date()))).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
