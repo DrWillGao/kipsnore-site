@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import { readdirSync } from 'node:fs';
+
+// Internal review gallery of every blog image (diagrams + photos). Noindex.
+const diagrams = readdirSync('public/blog-images/diagrams')
+  .filter((f) => f.endsWith('.svg'))
+  .sort();
+let photos: string[] = [];
+try {
+  photos = readdirSync('public/blog-images/photos')
+    .filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f))
+    .sort();
+} catch {
+  photos = [];
+}
+---
+<Base
+  title="Image library | Kip"
+  description="Internal review of all Kip blog images and diagrams."
+  path="/library/"
+  noindex={true}
+>
+  <section class="library">
+    <p class="kicker">Internal</p>
+    <h1>Image library</h1>
+    <p class="library-lede">
+      Every diagram and photo across the Kip blog, in one place for review. To add a photo, drop it
+      into <code>public/blog-images/photos/</code> (named after the post slug) and it appears below.
+    </p>
+
+    <h2>Diagrams ({diagrams.length})</h2>
+    <div class="lib-grid">
+      {diagrams.map((f) => (
+        <figure class="lib-item">
+          <img src={`/blog-images/diagrams/${f}`} alt={f} loading="lazy" />
+          <figcaption>{f}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <h2>Photos ({photos.length})</h2>
+    {photos.length === 0 ? (
+      <p class="library-empty">
+        No photos yet. Drop images into <code>public/blog-images/photos/</code> and they will show here.
+      </p>
+    ) : (
+      <div class="lib-grid">
+        {photos.map((f) => (
+          <figure class="lib-item">
+            <img src={`/blog-images/photos/${f}`} alt={f} loading="lazy" />
+            <figcaption>{f}</figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+  </section>
+</Base>

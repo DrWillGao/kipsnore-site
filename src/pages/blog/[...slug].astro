@@ -5,23 +5,22 @@ import PostCta from '../../components/PostCta.astro';
 import { SITE_URL } from '../../consts';
 
 export async function getStaticPaths() {
-  // Hide drafts AND future-dated posts. A future pubDate is how the drip
-  // schedule works: a post stays unbuilt until a rebuild happens on/after its
-  // pubDate (see netlify/functions/scheduled-rebuild.mjs for the daily rebuild).
-  // PREVIEW_ALL=true (set only for private preview builds) shows future-dated
-  // posts too, so the whole drip queue can be reviewed before it goes live.
+  // PREVIEW_ALL=true (preview builds only) also shows future-dated drip posts.
   const previewAll = process.env.PREVIEW_ALL === 'true';
   const posts = await getCollection('blog', ({ data }) => !data.draft && (previewAll || data.pubDate <= new Date()));
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
-const { title, description, pubDate, updatedDate, category, readMins } = post.data;
+const { Content, headings } = await render(post);
+const { title, description, pubDate, updatedDate, category, readMins, heroImage } = post.data;
 const path = `/blog/${post.id}/`;
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+// Table of contents from the post's H2 headings (Astro injects matching ids).
+const toc = headings.filter((h) => h.depth === 2);
 
 const schema: object[] = [
   {
@@ -34,11 +33,11 @@ const schema: object[] = [
     author: { '@type': 'Organization', name: 'Kip', url: `${SITE_URL}/` },
     publisher: { '@type': 'Organization', name: 'Kip' },
     mainEntityOfPage: new URL(path, SITE_URL).href,
+    ...(heroImage ? { image: new URL(heroImage, SITE_URL).href } : {}),
   },
 ];
 
-// FAQPage structured data lifted from the post's "## FAQ" section, so AI answer
-// engines and search can extract each question and answer directly.
+// FAQPage structured data lifted from the post's "## FAQ" section.
 const body = post.body ?? '';
 const faqStart = body.search(/^##\s+FAQ\s*$/m);
 if (faqStart !== -1) {
@@ -59,22 +58,48 @@ if (faqStart !== -1) {
   }
 }
 ---
-<Base title={`${title} | Kip`} description={description} path={path} schema={schema}>
-  <article class="article">
-    <div class="article-head">
-      <p class="kicker">{category}</p>
+<Base title={`${title} | Kip`} description={description} path={path} schema={schema} ogImage={heroImage}>
+  <article class="post">
+    <header class="post-head">
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/blog/">Blog</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>{category}</span>
+      </nav>
       <h1>{title}</h1>
-      <p class="article-byline">
-        <span>By <a href="/about/">the Kip team</a></span>
-        <span class="sep">·</span>
-        <span>Updated {fmt(updatedDate ?? pubDate)}</span>
-        <span class="sep">·</span>
-        <span>{readMins} min read</span>
-      </p>
-    </div>
-    <div class="prose">
-      <Content />
-      <PostCta />
+      <div class="post-byline">
+        <img class="post-avatar" src="/assets/logo/icon-180.png" alt="" width="44" height="44" />
+        <div class="post-byline-text">
+          <span class="post-byline-name">The Kip team</span>
+          <span class="post-byline-sub">{readMins} min read · Updated {fmt(updatedDate ?? pubDate)}</span>
+        </div>
+      </div>
+      {heroImage ? (
+        <img class="post-hero" src={heroImage} alt="" width="1080" height="430" />
+      ) : (
+        <div class="post-hero post-hero-fallback" aria-hidden="true">
+          <img src="/assets/logo/kip-wordmark-pale.svg" alt="" width="96" height="38" />
+        </div>
+      )}
+    </header>
+
+    <div class:list={['post-body', { 'has-toc': toc.length > 1 }]}>
+      {toc.length > 1 && (
+        <aside class="post-toc" aria-label="In this article">
+          <p class="post-toc-title">In this article</p>
+          <nav>
+            <ol>
+              {toc.map((h) => (
+                <li><a href={`#${h.slug}`}>{h.text}</a></li>
+              ))}
+            </ol>
+          </nav>
+        </aside>
+      )}
+      <div class="prose post-prose">
+        <Content />
+        <PostCta />
+      </div>
     </div>
   </article>
 </Base>

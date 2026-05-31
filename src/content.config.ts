@@ -12,6 +12,9 @@ const blog = defineCollection({
     category: z.string().default('Guide'),
     readMins: z.number().default(4),
     draft: z.boolean().default(false),
+    // Optional hero image (path under /blog-images/photos/...). Falls back to a
+    // branded gradient banner when absent.
+    heroImage: z.string().optional(),
   }),
 });
 
