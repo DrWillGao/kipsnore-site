@@ -255,14 +255,6 @@ p a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .hero-visual { display: flex; flex-direction: column; align-items: center; }
 
 .hero-stage { position: relative; width: min(74%, 300px); padding-top: 8px; }
-.hero-stage::before {
-  content: "";
-  position: absolute;
-  inset: -6% -22% 4% -22%;
-  border-radius: 44px;
-  background: radial-gradient(120% 88% at 50% 6%, rgba(30, 58, 95, 0.16), rgba(30, 58, 95, 0.04) 48%, transparent 74%);
-  z-index: 0;
-}
 .hero-stage .phone-stage-frame { position: relative; z-index: 1; width: 100%; }
 
 .phone-stage-frame {
@@ -281,12 +273,6 @@ p a:hover { color: var(--accent); text-decoration-color: var(--accent); }
   object-fit: cover; object-position: top;
 }
 
-.phone-caption {
-  max-width: 32ch;
-  margin: 28px auto 0;
-  color: var(--ink-mute);
-  font-size: 14px;
-}
 
 /* ── How it works (3 steps) ────────────────────────────────────── */
 

@@ -9,7 +9,7 @@ export const APP_STORE_URL = `https://apps.apple.com/app/id${APP_ID}`;
 export const CONTACT_EMAIL = 'kipsnoreapp@gmail.com';
 
 // One CTA, reused everywhere (Calm-style single-CTA discipline).
-export const CTA_LABEL = 'Get Kip free';
+export const CTA_LABEL = 'Start 3-night free trial';
 
 // The brand promise, kept charter-safe (wellness, never "diagnose").
 export const TAGLINE = 'Understand your snoring, privately.';
